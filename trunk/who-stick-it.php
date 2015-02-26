@@ -1,9 +1,9 @@
 <?php
 /*
   Plugin Name: Who Stick It
-  Version: 1.0.1
+  Version: 1.0.2
   Plugin URI:
-  Description: Pour gérer l'affichage de la page home
+  Description: Make a sticky menu effect of any part on your website !
   Author: Whodunit
   Author URI: http://www.whodunit.fr/
  */
@@ -15,7 +15,6 @@ if (!class_exists('who-stick-it')) {
         public static function hooks() {
             if (is_admin()) {
                 add_action('admin_menu', array(__CLASS__, 'add_settings_panels'));
-                add_action('admin_enqueue_scripts', array(__CLASS__, 'admin_enqueue_scripts'));
                 add_action('save_post', array(__CLASS__, 'save_post'));
             }
         }
@@ -59,20 +58,23 @@ if (!class_exists('who-stick-it')) {
 }
 
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_action_links');
+
 function add_action_links($links) {
     $mylinks = array(
-        '<a href="' . admin_url('options-general.php?page=who-stick-it') . '">Paramètres</a>',
+        '<a href="' . admin_url('options-general.php?page=who-stick-it') . '">Options</a>',
     );
     return array_merge($links, $mylinks);
 }
 
 add_action('wp_head', 'hook_js');
+
 function hook_js() {
     $url = plugins_url();
     wp_enqueue_script('who-stick-it', $url . '/who-stick-it/js/jquery.sticky.js');
 }
 
 add_action('wp_footer', 'hook_css');
+
 function hook_css() {
     ?>
     <style>
