@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: Who Stick It
-  Version: 1.0.2
+  Version: 1.0.3
   Plugin URI:
   Description: Make a sticky menu effect of any part on your website !
   Author: Whodunit
