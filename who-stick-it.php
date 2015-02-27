@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: Who Stick It
-  Version: 1.0.3
+  Version: 1.1.0
   Plugin URI:
   Description: Make a sticky menu effect of any part on your website !
   Author: Whodunit
@@ -58,6 +58,14 @@ if (!class_exists('who-stick-it')) {
 }
 
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_action_links');
+
+
+add_action( 'plugins_loaded', 'myplugin_load_textdomain' );
+
+function myplugin_load_textdomain() {
+  load_plugin_textdomain( 'who-stick-it', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); 
+}
+
 
 function add_action_links($links) {
     $mylinks = array(
