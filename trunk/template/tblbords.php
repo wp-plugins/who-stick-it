@@ -39,16 +39,15 @@ if ((isset($_POST['id_stick'])) && (isset($_POST['space'])) && (isset($_POST['na
 ?>   
 <div class="block_admin" style="float: left; width: 90%; margin: 0%; padding: 0%; height: 50px;">
     <h1>Who stick it</h1>
-    <p>-Choissisez le type d'élément à viser : une class ou un ID.</p>
-    <p>-Indiquer la distance en pixel entre votre class/ID et le haut de la page, quand l'utilisateur vas scroller le menu restera bloqué à la distance que vous aurrez indiqué.</p>
-
+    <p><?php _e("- Choose the type of item to cover: a class or ID .","who-stick-it"); ?></p>
+    <p><?php _e("- Indicate the distance in pixels between your class / ID and the top of the page when the user going scroller menu will be locked at the distance you have indicated .","who-stick-it"); ?></p>
     <table>
         <tr>
         <thead>
-        <th>Type</th>
-        <th>Nom de votre class ou id</th>
-        <th>Espace en pixel avec le haut de la page</th>
-        <th colspan="2">Edition / Suppression</th>
+        <th><?php _e("Type","who-stick-it"); ?></th>
+        <th><?php _e("Name of your class or ID","who-stick-it"); ?></th>
+        <th><?php _e("Pixel space with the top of the page","who-stick-it"); ?></th>
+        <th colspan="2"><?php _e("Edit / Delete","who-stick-it"); ?></th>
         </tr>
         </thead>
         <tbody>
@@ -61,13 +60,13 @@ if ((isset($_POST['id_stick'])) && (isset($_POST['space'])) && (isset($_POST['na
                     </select>
                 </td>
                 <td>    
-                    <input type="text" name="name" placeholder="Nom de votre class ou id" required style="width: 200px">
+                    <input type="text" name="name" placeholder="<?php _e("Name of your class or ID","who-stick-it"); ?>" required style="width: 200px">
                 </td>
                 <td >    
-                    <input  type="number" name="space" placeholder="Taille en pixel" value="0" >px
+                    <input  type="number" name="space" placeholder="<?php _e("Pixel size","who-stick-it"); ?>" value="0" >px
                 </td>
                 <td >     
-                    <input type="submit" class="button button-primary" value="Ajouter" style="width: 100px">
+                    <input type="submit" class="button button-primary" value="<?php _e("Add On","who-stick-it"); ?>" style="width: 100px">
                 </td>
             </tr>
         </form>
@@ -98,7 +97,7 @@ if ((isset($_POST['id_stick'])) && (isset($_POST['space'])) && (isset($_POST['na
                 <td>   
                     <form method="POST">
                         <input type="hidden" name="sup_suc" value="<?php echo $key ?>" >
-                        <input type="submit" class="button button-primary" value="Supprimer" style="background: red; border-color: brown; width: 100px;" onclick="javascript:return confirm('Etes vous sur?')">
+                        <input type="submit" class="button button-primary" value="Supprimer" style="background: red; border-color: brown; width: 100px;" onclick="javascript:return confirm('<?php _e("Are you sure?","who-stick-it"); ?>')">
                     </form>
                 </td>
                 </tr>
