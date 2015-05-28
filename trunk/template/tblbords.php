@@ -15,7 +15,8 @@ if (isset($_POST['name'])) {
     $type = $_POST['type'];
     if (isset($who_stick_it)) {
         $table_who_stick_it = json_decode($who_stick_it, true);
-        $sum = key($table_who_stick_it) + 1;
+        $sum = count($table_who_stick_it);
+        $sum=$sum+ 1;
         $table_who_stick_it[$sum] = array($name, $espace, $type);
         $new_value = json_encode($table_who_stick_it);
         self::set_option('who_stick_it', $new_value);
