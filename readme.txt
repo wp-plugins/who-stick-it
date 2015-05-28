@@ -30,7 +30,7 @@ Stable tag: 1.1.0
 == Changelog ==
 
 = 1.1 =
-* 1.0.0 Translated into English
+* 1.1.0 Translated into English
 
 
 = 1.0 =
