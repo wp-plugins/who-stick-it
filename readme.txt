@@ -4,7 +4,7 @@ Donate link: http://www.whodunit.fr/
 Tags: stiky menu,scroll, menu,stiky
 Requires at least: 3.3
 Tested up to: 4.2.2
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 
 "Who stick it" can make a sticky menu effect of any part on your website !
 
@@ -14,6 +14,7 @@ Stable tag: 1.1.1
 * you can edit this zone
 * you can delete this zone
 * you can make an class or id stikable
+* you can exclude stiky on some page 
 
 
 == Installation ==
@@ -30,6 +31,7 @@ Stable tag: 1.1.1
 == Changelog ==
 
 = 1.1 =
+* 1.2.0 Adding new feature you can block the stiky if ID or class is present on page
 * 1.1.1 bug fix
 * 1.1.0 Translated into English
 
