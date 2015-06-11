@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: Who Stick It
-  Version: 1.2.0
+  Version: 1.3.0
   Plugin URI:
   Description: Make a sticky menu effect of any part on your website !
   Author: Whodunit
@@ -98,45 +98,51 @@ function hook_css() {
     $who_stick_it = get_option('who_stick_it');
     $table_who_stick_it = json_decode($who_stick_it, true);
     foreach ($table_who_stick_it as $key => $value) {
+        $class = $value[0];
+        if ($value[2] == 'id') {
+            $class = "#" . $value[0];
+        }
+        if ($value[2] == 'class') {
+            $class = "." . $value[0];
+        }
         if (isset($value[3]) && $value[3] != '') {
             ?>
-                        if ($("<?php echo $value[3] ?>")[0]) {
-
-                        } else {
-                            $("<?php echo ($value[2] == 'id') ? '#' : '.' ?><?php echo $value[0] ?>").sticky({topSpacing: <?php echo $value[1] ?>});
+                        if (!$("<?php echo $value[3] ?>")[0]) {
+                            $("<?php echo $class ?>").sticky({topSpacing: <?php echo $value[1] ?>});
                         }
             <?php
         } else {
             ?>
-                        $("<?php echo ($value[2] == 'id') ? '#' : '.' ?><?php echo $value[0] ?>").sticky({topSpacing: <?php echo $value[1] ?>});
+                        $("<?php echo $class ?>").sticky({topSpacing: <?php echo $value[1] ?>});
             <?php
-    }}
-        ?>
-                    $(document).on("scroll", onScroll);
-                    function onScroll(event) {
-                        var scrollPos = $(document).scrollTop();
-                        $('.menu-about-us-container a, .menu-maximum-diversification-container a,.menu-sustainable-way-container a,menu-antibenchmark-strategy-container a').each(function () {
-                            var refElement = $(this).attr("href");
-                            var position = $(refElement).offset();
-                            if (scrollPos + 300 > position.top && scrollPos < position.top + 300) {
-                                $(this).addClass("active");
-                            }
-                            else {
-                                $(this).removeClass("active");
-                            }
-                        });
-                    }
-                });
-                var str = window.location.hash;
-                $("body").append("<a href=" + window.location.hash + " id='superhide'></a>");
-
-                var timerId = setInterval(clickancre, 0);
-                function clickancre() {
-                    $("#superhide").trigger("click");
-                    clearInterval(timerId);
-                }
-            })(jQuery);
-        </script>
-        <?php
+        }
     }
     ?>
+                $(document).on("scroll", onScroll);
+                function onScroll(event) {
+                    var scrollPos = $(document).scrollTop();
+                    $('.menu-about-us-container a, .menu-maximum-diversification-container a,.menu-sustainable-way-container a,menu-antibenchmark-strategy-container a').each(function () {
+                        var refElement = $(this).attr("href");
+                        var position = $(refElement).offset();
+                        if (scrollPos + 300 > position.top && scrollPos < position.top + 300) {
+                            $(this).addClass("active");
+                        }
+                        else {
+                            $(this).removeClass("active");
+                        }
+                    });
+                }
+            });
+            var str = window.location.hash;
+            $("body").append("<a href=" + window.location.hash + " id='superhide'></a>");
+
+            var timerId = setInterval(clickancre, 0);
+            function clickancre() {
+                $("#superhide").trigger("click");
+                clearInterval(timerId);
+            }
+        })(jQuery);
+    </script>
+    <?php
+}
+?>

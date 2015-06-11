@@ -60,8 +60,9 @@ if ((isset($_POST['id_stick'])) && (isset($_POST['space'])) && (isset($_POST['na
             <tr >
                 <td  >    
                     <select name="type" required>
+                        <option value=""></option>
                         <option value="class">class</option>
-                        <option value="id">id</option>
+                        <option value="id">ID</option>
                     </select>
                 </td>
                 <td>    
@@ -87,6 +88,7 @@ if ((isset($_POST['id_stick'])) && (isset($_POST['space'])) && (isset($_POST['na
                 <form method="POST">
                     <td>
                         <select name="type" required>
+                            <option value=""></option>
                             <option value="class" <?php echo ($value[2] == "class") ? 'selected' : '' ?>>class</option>
                             <option value="id" <?php echo ($value[2] == "id") ? 'selected' : '' ?>>id</option>
                         </select>

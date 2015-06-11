@@ -2,9 +2,9 @@
 Contributors: AlTi5
 Donate link: http://www.whodunit.fr/
 Tags: stiky menu,scroll, menu,stiky
-Requires at least: 3.3
 Tested up to: 4.2.2
-Stable tag: 1.2.0
+Stable tag: trunk
+
 
 "Who stick it" can make a sticky menu effect of any part on your website !
 
@@ -31,6 +31,7 @@ Stable tag: 1.2.0
 == Changelog ==
 
 = 1.1 =
+* 1.3.0 you can creat a custom élément
 * 1.2.0 Adding new feature you can block the stiky if ID or class is present on page
 * 1.1.1 bug fix
 * 1.1.0 Translated into English
